@@ -42,6 +42,10 @@ async function getAllPeople() {
   }
 }
 
+function viewSelectedPerson({ displayPerson }) {
+  console.log(displayPerson);
+}
+
 const run = async () => {
   const { initial } = await askInitialQuestion();
   switch (initial) {
@@ -57,8 +61,7 @@ const run = async () => {
         );
         spinner.stop();
         if (response.value && response.value.length) {
-          const { displayPerson } = await listPeople(response.value);
-          console.log(displayPerson);
+          viewSelectedPerson(await listPeople(response.value));
         } else {
           console.log("No people found!");
         }
@@ -69,8 +72,7 @@ const run = async () => {
     case VIEW_ALL:
       await getAllPeople();
       if (people.length) {
-        const selectedPerson = await listPeople(people);
-        console.log(selectedPerson);
+        viewSelectedPerson(await listPeople(people));
       }
       break;
     default:
