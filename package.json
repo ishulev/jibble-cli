@@ -1,0 +1,10 @@
+{
+  "name": "jibble-poeple-api",
+  "version": "1.0.0",
+  "main": "app.js",
+  "license": "MIT",
+  "dependencies": {
+    "clui": "^0.3.6",
+    "inquirer": "^8.1.2"
+  }
+}
